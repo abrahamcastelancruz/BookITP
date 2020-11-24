@@ -1,0 +1,31 @@
+ion-grid {
+   height: 100%;
+}
+
+.fullscreen {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   height: 100%;
+}
+
+.logo {
+   width: 50%;
+}
+
+ion-list {
+   margin-bottom: 3rem;
+}
+
+ion-button {
+   color: #ffffff !important;
+}
+
+ion-col {
+   text-align: center;
+}
+
+.linksLogin {
+   font-size: 1.5rem;
+}

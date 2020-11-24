@@ -1,0 +1,38 @@
+<ion-header>
+   <ion-toolbar>
+      <ion-title>Buscar Libro</ion-title>
+      <ion-buttons slot="start">
+         <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+   </ion-toolbar>
+</ion-header>
+<ion-content>
+   <ion-searchbar
+      [(ngModel)]="searchTerm"
+      (ionChange)="searchChanged($event)"
+   ></ion-searchbar>
+   <ion-list>
+      <!--<ion-item *ngFor="let book of results | async"> {{book.title}} </ion-item>-->
+      <ion-grid>
+         <ion-row>
+            <ion-col
+               button
+               *ngFor="let book of results | async"
+               size="6"
+               [routerLink]="['/dashboard/book-details',book.ID]"
+            >
+               <ion-card>
+                  <img [src]="book.thumbnail" />
+                  <ion-card-header>
+                     <ion-card-subtitle>{{book.author}}</ion-card-subtitle>
+                     <ion-card-title>{{book.title}}</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                     {{book.content_short |slice:1:100}}
+                  </ion-card-content>
+               </ion-card>
+            </ion-col>
+         </ion-row>
+      </ion-grid>
+   </ion-list>
+</ion-content>

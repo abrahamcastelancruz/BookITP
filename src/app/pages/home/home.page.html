@@ -1,0 +1,55 @@
+<ion-header>
+   <ion-toolbar>
+      <ion-title>Inicio</ion-title>
+      <ion-buttons slot="start">
+         <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+   </ion-toolbar>
+</ion-header>
+<ion-content>
+   <ion-card color="light">
+      <ion-card-header>
+         <ion-card-title>Horario de Atención</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+         <ion-grid>
+            <ion-row class="dias">
+               <ion-col>Lunes</ion-col>
+               <ion-col>Martes</ion-col>
+               <ion-col>Miércoles</ion-col>
+               <ion-col>Jueves</ion-col>
+               <ion-col>Viernes</ion-col>
+            </ion-row>
+            <ion-row class="horario">
+               <ion-col>8:00 AM - 6:00 PM</ion-col>
+            </ion-row>
+         </ion-grid>
+      </ion-card-content>
+   </ion-card>
+   <ion-slides *ngIf="results" [options]="bookOptions" pager="true">
+      <ion-slide
+         button
+         *ngFor="let book of results | async"
+         size="6"
+         [routerLink]="['/dashboard/book-details',book.ID]"
+      >
+         <ion-card>
+            <img [src]="book.thumbnail" class="libro" />
+         </ion-card>
+      </ion-slide>
+   </ion-slides>
+   <ion-slides pager="true" [options]="slidesOptions">
+      <ion-slide>
+         <img src="assets/images/mural1.jpg" alt="" />
+      </ion-slide>
+      <ion-slide>
+         <img src="assets/images/mural2.jpg" alt="" />
+      </ion-slide>
+      <ion-slide>
+         <img src="assets/images/entrada.jpg" alt="" />
+      </ion-slide>
+      <ion-slide>
+         <img src="assets/images/entrada1.png" alt="" />
+      </ion-slide>
+   </ion-slides>
+</ion-content>

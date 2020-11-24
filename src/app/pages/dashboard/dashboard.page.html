@@ -1,0 +1,43 @@
+<ion-app>
+   <ion-menu contentId="main-content" side="start">
+      <ion-header>
+         <ion-toolbar>
+            <ion-title>Dashboard</ion-title>
+         </ion-toolbar>
+      </ion-header>
+      <ion-content>
+         <ion-card *ngIf="userInfo">
+            <ion-grid>
+               <ion-row>
+                  <ion-col size="3">
+                     <img
+                        src="assets/images/logoITP.png
+                     "
+                        alt=""
+                     />
+                  </ion-col>
+                  <ion-col size="9" class="data">
+                     {{userInfo.name}} {{userInfo.email}}</ion-col
+                  >
+               </ion-row>
+            </ion-grid>
+         </ion-card>
+         <ion-list>
+            <ion-menu-toggle auto-hide="false" *ngFor="let page of pages">
+               <ion-item
+                  [routerLink]="page.path"
+                  routerDirection="root"
+                  [class.active-menu]="activePath === page.path"
+               >
+                  {{page.name}}
+               </ion-item>
+            </ion-menu-toggle>
+         </ion-list>
+      </ion-content>
+      <ion-button expand="block" shape="round" color="light" (click)="logout()"
+         >Cerrar Sesión</ion-button
+      >
+   </ion-menu>
+
+   <ion-router-outlet id="main-content" main></ion-router-outlet>
+</ion-app>

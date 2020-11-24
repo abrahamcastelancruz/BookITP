@@ -1,0 +1,116 @@
+<ion-content>
+   <ion-grid>
+      <ion-row class="ion-align-items-center fullscreen">
+         <ion-row>
+            <ion-col>
+               <img class="logo" src="assets/logo/logo_sinFondo.png" />
+               <h1>Registro de Nuevo Usuario</h1>
+            </ion-col>
+         </ion-row>
+         <ion-row>
+            <ion-col>
+               <form [formGroup]="registerForm" (ngSubmit)="register()">
+                  <ion-list>
+                     <ion-item>
+                        <ion-label position="floating"
+                           >Nombre Completo :</ion-label
+                        >
+                        <ion-input
+                           formControlName="name"
+                           (ionBlur)="invalidName($event)"
+                        ></ion-input>
+                     </ion-item>
+                     <ion-item>
+                        <ion-label position="floating"
+                           >Correo Electrónico :</ion-label
+                        >
+                        <ion-input
+                           type="email"
+                           formControlName="email"
+                           (ionBlur)="invalidEmail()"
+                        ></ion-input>
+                     </ion-item>
+                     <ion-item>
+                        <ion-label position="floating">Contraseña :</ion-label>
+                        <ion-input
+                           type="password"
+                           formControlName="password"
+                           (ionBlur)="invalidPassword()"
+                        ></ion-input>
+                     </ion-item>
+                     <ion-item>
+                        <ion-label position="floating"
+                           >Confirmación de Contraseña :</ion-label
+                        >
+                        <ion-input
+                           type="password"
+                           formControlName="confirmPassword"
+                        ></ion-input>
+                     </ion-item>
+                     <ion-item>
+                        <ion-label position="floating">Carrera :</ion-label>
+                        <ion-select
+                           placeholder="Selecciona tu Carrera"
+                           formControlName="degree"
+                        >
+                           <ion-select-option value="Arquitectura"
+                              >Arquitectura</ion-select-option
+                           >
+                           <ion-select-option value="Administración"
+                              >Administración</ion-select-option
+                           >
+                           <ion-select-option
+                              value="Ingeniería en Diseño Industrial"
+                              >Ingeniería en Diseño
+                              Industrial</ion-select-option
+                           >
+                           <ion-select-option value="Ingeniería Civil"
+                              >Ingeniería Civil</ion-select-option
+                           >
+                           <ion-select-option value="Ingeniería Eléctrica"
+                              >Ingeniería Eléctrica</ion-select-option
+                           >
+                           <ion-select-option value="Ingeniería Industrial"
+                              >Ingeniería Industrial</ion-select-option
+                           >
+                           <ion-select-option value="Ingeniería Mecánica"
+                              >Ingeniería Mecánica</ion-select-option
+                           >
+                           <ion-select-option value="Ingeniería Química"
+                              >Ingeniería Química</ion-select-option
+                           >
+                           <ion-select-option
+                              value="Ingeniería en Sistemas Computacionales"
+                              >Ingeniería en Sistemas
+                              Computacionales</ion-select-option
+                           >
+                           <ion-select-option value="Ingeniería TICs"
+                              >Ingeniería en TICs</ion-select-option
+                           >
+                           <ion-select-option
+                              value="Ingeniería en Gestión Empresarial"
+                              >Ingeniería en Gestión
+                              Empresarial</ion-select-option
+                           >
+                        </ion-select>
+                     </ion-item>
+                  </ion-list>
+                  <ion-button
+                     expand="block"
+                     shape="round"
+                     color="light"
+                     (click)="register()"
+                     >Registrar</ion-button
+                  >
+               </form>
+            </ion-col>
+         </ion-row>
+         <ion-col>
+            <p class="linksLogin">
+               Ya tienes una cuenta?
+               <a (click)="login()">Inicia Sesión!!</a>
+            </p>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+</ion-content>
